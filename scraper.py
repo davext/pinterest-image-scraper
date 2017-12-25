@@ -63,8 +63,8 @@ class Pinterest_Helper(object):
                     for i in images:
                         src = i.get_attribute("src")
                         if src:
-                            if string.find(src,"/236x/") != -1:
-                                src = string.replace(src,"/236x/","/736x/")
+                            if src.find("/236x/") != -1:
+                                src = src.replace("/236x/","/736x/")
                                 results.append(u_to_s(src))
                     previmages = copy.copy(images)
                     final_results = list(set(final_results + results))
@@ -87,7 +87,7 @@ class Pinterest_Helper(object):
         for i in images:
             src = i.get_attribute("src")
             if src:
-                if string.find(src,"/236x/") != -1:
+                if src.find("/236x/") != -1:
                     src = string.replace(src,"/236x/","/736x/")
                     results.append(u_to_s(src))
         return results
@@ -99,6 +99,5 @@ class Pinterest_Helper(object):
     
     def close(self):
         self.browser.close()
-    
     
     
